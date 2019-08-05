@@ -1,2 +1,2 @@
 # stb_app
-Studiebeest application react
+Studiebeest application in react
