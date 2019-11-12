@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import LandingPage from './LandingPage.component';
 import * as actionTypes from '../../../state2/actions';
+import * as actionCreators from '../../../state2/modules/actionCreators';
 const mapStateToProps = state => {
   return {
     ctr:state.counter.counter,
@@ -11,7 +12,9 @@ const mapStateToProps = state => {
 const mapDispatchtoProps = dispatch => {
   return {
     onIncrementCounter: (value)=>dispatch({type:actionTypes.INCREMENT,payload:{value:value}}),
-    changeVal: (value)=>dispatch({type:actionTypes.CHANGEVAL,payload:{value:value}})
+    changeVal: (value)=>dispatch({type:actionTypes.CHANGEVAL,payload:{value:value}}),
+    getList: ()=>dispatch(actionCreators.getList()),
+    getById: (id)=>dispatch(actionCreators.getById(id))
   };
 };
 export default connect(mapStateToProps, mapDispatchtoProps)(LandingPage);
