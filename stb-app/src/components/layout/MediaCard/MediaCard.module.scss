@@ -5,3 +5,20 @@
     padding:20px;
     border-radius:20px;
 }
+/* material ui customizing */
+.MuiCard-root {
+    position:relative;
+}
+.MuiCardActions-root {
+    position:absolute;
+    bottom:0px;
+}
+.movingDropzone{
+    background:rgba(255,255,255,0.1) !important;
+}
+.movingDropzone:hover{
+    background:green !important;
+}
+.movingState{
+    opacity:0.5;
+}

@@ -1,59 +1,54 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+//import PropTypes from 'prop-types';
+import {MenuTop} from '../../layout';
+import {NewFolder,NewModule,CardList} from './components';
 
-//import { BackButton } from '../../commons';
-import {MenuTop,MediaCard} from '../../layout';
 import style from './LandingPage.module.scss';
 import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 
-
-
-class LandingPage extends Component {
-
+const LandingPage = (props) => {
   
-  
-  render() {
-    const user_name = 'Tobias Landman';
-    
+  useEffect( () => {
+    if(props.match.params.id_folder!==props.id_folder){
+      props.getList(props.match.params.id_folder);
+      props.setFolderId(""+props.match.params.id_folder+"");
+    }
+  });
+
+  const go_back = ()=>{
+    props.history.goBack();
+  }
+
     return (
+
       <div className='container'>
         <MenuTop />
         <div className={style.landing_container}>
-          <input type='text' value={this.props.change} onChange={(e)=>this.props.changeVal(e.target.value)} />
-          <Button variant="contained" color="primary" onClick={()=>this.props.onIncrementCounter(this.props.change)}>Klik hier</Button> - <span>{this.props.ctr}</span><span>{user_name}</span>
-          <div className={style.card_container}>
-        <MediaCard 
-        title='Aardrijkskunde 12'
-        description='Dit is een module die beschrijft wat je wil doen'
-        />
-        <MediaCard 
-        title='Aardrijkskunde 12'
-        description='Dit is een module die beschrijft wat je wil doen'
-        />
-        <MediaCard 
-        title='Aardrijkskunde 12'
-        description='Dit is een module die beschrijft wat je wil doen'
-        />
-        <MediaCard 
-        title='Aardrijkskunde 12'
-        description='Dit is een module die beschrijft wat je wil doen'
-        />
-        <MediaCard 
-        title='Aardrijkskunde 12'
-        description='Dit is een module die beschrijft wat je wil doen'
-        />
-        <MediaCard 
-        title='Aardrijkskunde 12'
-        description='Dit is een module die beschrijft wat je wil doen'
-        />
+          <Button onClick={()=>go_back()}>terug</Button>
+          <div>
+          <h1>{props.id_folder}</h1>
+          <NewFolder 
+          content="Maak een nieuwe folder aan."
+          buttonText="Nieuwe folder"
+          id_folder={props.id_folder}
+          />
+          <NewModule 
+          content="Maak een nieuwe module aan."
+          buttonText="Nieuwe module"
+          id_folder={props.id_folder}
+          />
           </div>
-
+            <div >dit is een test</div>
+          <CardList 
+          list={props.list} />
         </div>
       </div>
     );
   }
-}
-LandingPage.propTypes = {
+
+/*LandingPage.propTypes = {
   getContent: PropTypes.func.isRequired,
   subjectContent: PropTypes.shape({
     author: PropTypes.string.isRequired,
@@ -64,6 +59,6 @@ LandingPage.propTypes = {
     theory: PropTypes.array.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
-};
+};*/
 
 export default LandingPage;

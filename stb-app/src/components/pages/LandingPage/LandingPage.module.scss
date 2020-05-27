@@ -16,3 +16,45 @@
     margin-right:auto;
     max-width:1360px;
   }
+  .emptySpaceBefore{
+width:50px;
+background:grey;
+height:300px;
+flex:0 0 auto;
+margin-left:-50px;
+}
+.emptySpaceBeforeUnactive{
+  width:50px;
+  background:transparent;
+  height:300px;
+  flex:0 0 auto;
+  margin-left:-50px;
+  }
+.emptySpaceAfter{
+  width:50px;
+  background:grey;
+  height:300px;
+  flex:0 0 auto;
+  }
+.emptySpaceAfter:hover, .emptySpaceBefore:hover{
+  background:green;
+  
+}
+.emptySpaceAfterUnactive{
+  width:50px;
+  background:transparent;
+  height:300px;
+  flex:0 0 auto;
+  content:'';
+}
+.cardWrapper{
+    display: flex;
+    height:300;
+  }
+  .overlayMove{
+    position:absolute;
+    width:250px;
+    margin-top:100px;
+    text-align: center;
+    z-index:99;
+  }

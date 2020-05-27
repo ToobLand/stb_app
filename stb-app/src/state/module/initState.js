@@ -1,5 +1,5 @@
 const initialState={
-    counter:11,
-    changeVal:1
+    currentModule:{},
+    contentblocks:[]
 }
 export default initialState;

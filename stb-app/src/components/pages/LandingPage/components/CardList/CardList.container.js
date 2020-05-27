@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import LandingPage from './LandingPage.component';
-import * as actionCreators from '../../../state/folder/actionCreators';
+import CardList from './CardList.component';
+import * as actionCreators from '../../../../../state/folder/actionCreators';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
@@ -14,12 +14,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchtoProps = dispatch => {
   return {
-    getList: (id_folder)=>dispatch(actionCreators.getList(id_folder)),
-    getById: (id)=>dispatch(actionCreators.getById(id)),
-    setFolderId: (id)=>dispatch(actionCreators.setFolderId(id)),
     setMoving: ()=>dispatch(actionCreators.setMoving()),
     unsetMoving: ()=>dispatch(actionCreators.unsetMoving()),
     setMovingIdFolder: (id)=>dispatch(actionCreators.setMovingIdFolder(id))
   };
 };
-export default withRouter(connect(mapStateToProps, mapDispatchtoProps)(LandingPage));
+export default withRouter(connect(mapStateToProps, mapDispatchtoProps)(CardList));
