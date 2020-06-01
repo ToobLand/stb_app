@@ -21,6 +21,7 @@ const SearchImage = ({setImage}) => {
     const [images, setImages] = useState("");
     const [value, setValue] = useState("");
     const [activeImage, setActiveImage] = useState("");
+    const [urlToSave, setUrlToSave] = useState("");
     
     
     const handleClickOpen = () => {
@@ -31,8 +32,9 @@ const SearchImage = ({setImage}) => {
     setOpen(false);
   };
  
-  const selectHandler = (id) =>{
+  const selectHandler = (id,url) =>{
     setActiveImage(id);
+    setUrlToSave(url);
   }
 
   const unsplash= async (term) => {
@@ -52,7 +54,7 @@ const SearchImage = ({setImage}) => {
     let output = images.map((image,index) => {
       return (<div 
         className= {activeImage===image.id ? style.selectImage : style.unselectImage}
-      onClick={()=>selectHandler(image.id)}
+      onClick={()=>selectHandler(image.id,image.urls.regular)}
       key={image.id}
       ><img src={image.urls.thumb} alt=''/>
       </div>);
@@ -92,7 +94,7 @@ const SearchImage = ({setImage}) => {
           <Button onClick={handleClose} color="primary">
             Annuleren
           </Button>
-          <Button color="primary" onClick={()=>setImage(activeImage)}>
+          <Button color="primary" onClick={()=>setImage(urlToSave)}>
             selecteerde foto gebruiken
           </Button>
         </DialogActions>
