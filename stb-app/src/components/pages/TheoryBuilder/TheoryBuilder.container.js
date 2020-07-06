@@ -11,9 +11,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchtoProps = dispatch => {
   return {
-    getTheory: (id)=>dispatch(actionCreators.getTheory(id)),
-    saveTheory: (id_contentblock,jsonText)=>dispatch(actionCreators.saveTheory(id_contentblock,jsonText)),
-    updateTheory: (id,jsonText)=>dispatch(actionCreators.saveTheory(id,jsonText))
+    getTheory: (id_contentblock)=>dispatch(actionCreators.getTheory(id_contentblock)),
+    saveTheory: (id_contentblock,id_theoryTemplate,jsonText)=>dispatch(actionCreators.saveTheory(id_contentblock,id_theoryTemplate,jsonText)),
+    updateTheory: (id,id_theoryTemplate,jsonText)=>dispatch(actionCreators.updateTheory(id,id_theoryTemplate,jsonText))
   };
 };
 export default withRouter(connect(mapStateToProps, mapDispatchtoProps)(TheoryBuilder));

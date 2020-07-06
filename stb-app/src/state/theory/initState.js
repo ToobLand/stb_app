@@ -1,4 +1,4 @@
 const initialState={
-    theory:""
+    theory:{id_theorytemplate:'empty'}
 }
 export default initialState;

@@ -1,0 +1,25 @@
+.designBar{
+    background:lightgrey;
+    width:100%;
+    left:0px;
+    text-align:center;
+    padding:10px;
+}
+
+.imageLeft{
+    max-width:100px;
+    height:90%;
+    flex: 0 1 auto;
+}
+.textRight{
+    flex:0 1 auto;
+    max-width:800px;
+}
+.contentWrapper{
+display:flex;
+justify-content: flex-start;
+flex-wrap: wrap;
+width:900px;
+margin-left:auto;
+margin-right:auto;
+}

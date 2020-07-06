@@ -13,17 +13,17 @@ export const getTheory = (id_contentblock) => {
        
         return axios.post('https://stb-app-core.herokuapp.com/theory/get/', {id_contentblock:id_contentblock})
         .then(response => {
-            dispatch(getTheorySynch(response.data.result));
+            dispatch(getTheorySynch(response.data.result[0]));
         }).catch(error => {
             throw(error);
         });
     }
 };
 
-export const saveTheory = (id_contentblock,text) => {
+export const saveTheory = (id_contentblock,id_theoryTemplate,text) => {
     return (dispatch)=>{
        
-        return axios.post('https://stb-app-core.herokuapp.com/theory/save/', {id_contentblock:id_contentblock,text:text})
+        return axios.post('https://stb-app-core.herokuapp.com/theory/save/', {id_contentblock:id_contentblock,id_theoryTemplate:id_theoryTemplate,id_user:'1',text:text})
         .then(response => {
             dispatch(saveTheorySynch(response.data.result));
         }).catch(error => {
@@ -32,10 +32,10 @@ export const saveTheory = (id_contentblock,text) => {
     }
 };
 
-export const updateTheory = (id_theory,text) => {
+export const updateTheory = (id_theory,id_theoryTemplate,text) => {
     return (dispatch)=>{
        
-        return axios.post('https://stb-app-core.herokuapp.com/theory/save/', {id:id_theory,text:text})
+        return axios.post('https://stb-app-core.herokuapp.com/theory/save/', {id:id_theory.toString(),id_theoryTemplate:id_theoryTemplate.toString(),text:text})
         .then(response => {
             dispatch(saveTheorySynch(response.data.result));
         }).catch(error => {
