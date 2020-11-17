@@ -1,0 +1,17 @@
+.container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin: 0px auto 45px auto;
+	height: 45px;
+
+	background: #3f51b5;
+}
+.secContainer {
+	display: flex;
+	justify-content: left;
+	width: 1000px;
+	height: auto;
+
+	padding: 0px;
+}

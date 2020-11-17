@@ -1,3 +1,3 @@
-import MediaCard from './MediaCard.component';
+import MediaCard from "./MediaCard.component";
 
 export default MediaCard;

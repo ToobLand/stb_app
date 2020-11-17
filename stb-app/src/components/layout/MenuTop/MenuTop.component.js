@@ -1,31 +1,20 @@
-import React, { useContext } from 'react';
-import MenuIconBtn from '../../commons/MenuIconBtn/MenuIconBtn.component';
-import { history } from '../../../routes';
-import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
-import { style } from '@material-ui/system';
-import styleCustom from './MenuTop.module.scss';
+import React, { useContext } from "react";
+import MenuIconBtn from "./components/MenuIconBtn/MenuIconBtn.component";
+import styleCustom from "./MenuTop.module.scss";
 
 const MenuTop = () => {
-
-    /*const handleClick = pathname => () => {
-        history.push(pathname);
-        alert('clicked');
-    };*/
-    const handleClick = (pathname) => () => {
-      
-      //history.push('/test/');
-      alert(pathname);
-    };
-    return (
-      <div className={styleCustom.menuContainer}>
-          <MenuIconBtn Icon={<AccessAlarm/>} onClick={handleClick('/test/')} />
-          <MenuIconBtn Icon={<ThreeDRotation/>} onClick={handleClick('/test/2')} />
-          <MenuIconBtn Icon={<AccessAlarm/>} onClick={handleClick('/test/3')} />
-          <MenuIconBtn Icon={<ThreeDRotation/>} onClick={handleClick('/test/4')} />
-      
-          
-      </div>
-    );
-  };
+	return (
+		<div className={styleCustom.menuBar}>
+			<div className={styleCustom.menuContainer}>
+				<div className={styleCustom.logo_container}>.studiebeest</div>
+				<div className={styleCustom.btn_container}>
+					<MenuIconBtn Text="Content bibliotheek" />
+					<MenuIconBtn Text="Content inzetten" />
+					<MenuIconBtn Text="Voortgang en gebruik" />
+				</div>
+			</div>
+		</div>
+	);
+};
 
 export default MenuTop;

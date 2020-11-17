@@ -1,0 +1,22 @@
+.sec_button {
+	height: 100%;
+	padding: 12px 25px;
+	color: white;
+	background: #6271d0;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-weight: 500;
+	margin-right: 0px;
+	border-right: 1px solid #424fa3;
+}
+
+.sec_button.special {
+	color: white;
+	background: #f36803;
+	border-right: 1px solid #b64c01;
+}
+.sec_button.dark {
+	color: white;
+	background: #002984;
+	border-right: 1px solid #000c27;
+}

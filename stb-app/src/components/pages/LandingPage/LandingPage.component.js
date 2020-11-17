@@ -1,52 +1,50 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 //import PropTypes from 'prop-types';
-import {MenuTop} from '../../layout';
-import {NewFolder,NewModule,CardList} from './components';
-
-import style from './LandingPage.module.scss';
-import Button from '@material-ui/core/Button';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
+import { MenuTop, SecMenu } from "../../layout";
+import { CardList } from "./components";
+import { NewFolder, NewModule } from "./components/index.js";
+import style from "./LandingPage.module.scss";
+import Button from "@material-ui/core/Button";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
 
 const LandingPage = (props) => {
-  
-  useEffect( () => {
-    if(props.match.params.id_folder!==props.id_folder){
-      props.getList(props.match.params.id_folder);
-      props.setFolderId(""+props.match.params.id_folder+"");
-    }
-  });
+	useEffect(() => {
+		if (props.match.params.id_folder !== props.id_folder) {
+			if (!props.match.params.id_folder) {
+				props.match.params.id_folder = 0;
+			}
+			props.getList(props.match.params.id_folder);
+			props.getById(props.match.params.id_folder);
+			props.setFolderId("" + props.match.params.id_folder + "");
+		}
+	}, [props.match.params.id_folder]);
 
-  const go_back = ()=>{
-    props.history.goBack();
-  }
+	const go_back = () => {
+		props.history.goBack();
+	};
 
-    return (
-
-      <div className='container'>
-        <MenuTop />
-        <div className={style.landing_container}>
-          <Button onClick={()=>go_back()}>terug</Button>
-          <div>
-          <h1>{props.id_folder}</h1>
-          <NewFolder 
-          content="Maak een nieuwe folder aan."
-          buttonText="Nieuwe folder"
-          id_folder={props.id_folder}
-          />
-          <NewModule 
-          content="Maak een nieuwe module aan."
-          buttonText="Nieuwe module"
-          id_folder={props.id_folder}
-          />
-          </div>
-            <div >dit is een test</div>
-          <CardList 
-          list={props.list} />
-        </div>
-      </div>
-    );
-  }
+	return (
+		<div className="container">
+			<MenuTop />
+			<SecMenu history={props.history}>
+				<NewFolder
+					content="Maak een nieuwe folder aan."
+					buttonText="Nieuwe folder"
+					id_folder={props.id_folder}
+				/>
+				<NewModule
+					content="Maak een nieuwe module aan."
+					buttonText="Nieuwe module"
+					id_folder={props.id_folder}
+				/>
+			</SecMenu>
+			<div className={style.landing_container}>
+				<CardList list={props.list} />
+			</div>
+		</div>
+	);
+};
 
 /*LandingPage.propTypes = {
   getContent: PropTypes.func.isRequired,

@@ -1,4 +1,21 @@
-.test{
-
-    color:grey;
+.moduleContainer {
+	max-width: 1000px;
+	margin: 0px auto;
+	display: flex;
+	justify-content: space-between;
+}
+.moduleOptions {
+	max-width: 400px;
+	flex: 0 1 auto;
+	border: 1px solid #666666;
+	padding: 25px;
+	text-align: left;
+}
+.contentblockContainer {
+	max-width: 400px;
+	flex: 0 1 auto;
+}
+.container h1 {
+	width: 1000px;
+	margin: 0px auto;
 }
