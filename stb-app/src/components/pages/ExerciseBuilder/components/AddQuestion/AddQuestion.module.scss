@@ -1,0 +1,26 @@
+.typeSelection {
+	background: #ededed;
+	padding: 20px;
+}
+.addQuestionContainer {
+}
+
+.MultipleChoiceAnswer {
+	padding: 20px;
+	padding-right: 0px;
+	display: flex;
+	width: 100%;
+}
+.MultipleChoiceAnswerContainer {
+	padding: 20px;
+}
+.MultipleChoiceText {
+	padding: 20px;
+}
+
+.ck.ck-editor,
+.ck-editor,
+.ck-editor__editable,
+.editorWidth {
+	width: 100% !important;
+}

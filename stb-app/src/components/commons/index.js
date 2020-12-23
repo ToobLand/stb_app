@@ -1,5 +1,3 @@
-import MenuIconBtn from './MenuIconBtn/MenuIconBtn.component';
+import PrivateRoute from "./PrivateRoute/PrivateRoute.component";
 
-export {
-    MenuIconBtn
-};
+export { PrivateRoute };

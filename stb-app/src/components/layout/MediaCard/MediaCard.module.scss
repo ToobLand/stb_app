@@ -39,13 +39,17 @@
 	height: 180px;
 	display: block;
 }
-h2 {
+.card h2 {
 	margin: 0px;
 	display: block;
 	height: 70px;
+	font-size: 1.5em;
+	font-weight: 300;
+	text-align: center;
 }
 .card p {
 	font-size: 10px;
+	text-align: center;
 }
 .card a {
 	color: #333333;

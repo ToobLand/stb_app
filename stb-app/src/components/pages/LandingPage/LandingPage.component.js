@@ -11,11 +11,18 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 const LandingPage = (props) => {
 	useEffect(() => {
 		if (props.match.params.id_folder !== props.id_folder) {
+			let folderId;
 			if (!props.match.params.id_folder) {
-				props.match.params.id_folder = 0;
+				//props.match.params.id_folder = 0;
+				folderId = 0;
+			} else {
+				folderId = props.match.params.id_folder;
 			}
-			props.getList(props.match.params.id_folder);
-			props.getById(props.match.params.id_folder);
+
+			props.getList(folderId);
+			console.log("In UseEffect getlist");
+
+			//props.getById(props.match.params.id_folder);
 			props.setFolderId("" + props.match.params.id_folder + "");
 		}
 	}, [props.match.params.id_folder]);

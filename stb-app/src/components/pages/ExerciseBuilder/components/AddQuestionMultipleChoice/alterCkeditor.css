@@ -1,0 +1,6 @@
+.ck.ck-editor,
+.ck-editor,
+.ck-editor__editable,
+.editorWidth {
+	width: 100% !important;
+}

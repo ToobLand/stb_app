@@ -14,7 +14,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import customStyle from "./SignIn.module.scss";
 import validator from "validator";
-
+import { useDispatch, useSelector } from "react-redux";
+import * as actionCreators from "../../../state/auth/actionCreators";
+import CircularProgress from "@material-ui/core/CircularProgress";
 function Copyright() {
 	return (
 		<Typography variant="body2" color="textSecondary" align="center">
@@ -72,30 +74,48 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
 	const classes = useStyles();
-
+	const dispatch = useDispatch();
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
 	const [emailErrorText, setEmailErrorText] = React.useState("");
 	const [passwordErrorText, setPasswordErrorText] = React.useState("");
+	const errorText = useSelector((state) => state.auth.error);
+	const loading = useSelector((state) => state.auth.loading);
+	const token = useSelector((state) => state.auth.token);
+	console.log(errorText);
 	const handleSave = (e) => {
 		e.preventDefault();
 		if (!email) {
 			setEmailErrorText("Er is geen e-mailadres ingevuld.");
+			return false;
 		} else {
 			if (validator.isEmail(email)) {
 				setEmailErrorText("");
 			} else {
 				setEmailErrorText("Geen geldig e-mailadres.");
+				return false;
 			}
 		}
 
 		if (!password) {
 			setPasswordErrorText("Er is geen wachtwoord ingevuld.");
+			return false;
 		} else {
 			setPasswordErrorText("");
 		}
-		alert(email + password);
+
+		dispatch(
+			actionCreators.auth({
+				payload: {
+					email: email,
+					password: password,
+				},
+			})
+		);
 	};
+	if (token) {
+		window.location.href = "/";
+	}
 
 	return (
 		<Grid container component="main" className={classes.root}>
@@ -103,12 +123,8 @@ export default function SignInSide() {
 			<Grid item xs={false} sm={4} md={7} className={classes.image} />
 			<Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
 				<div className={classes.paper}>
-					<Avatar className={classes.avatar}>
-						<LockOutlinedIcon />
-					</Avatar>
-					<Typography component="h1" variant="h5">
-						Studiebeest
-					</Typography>
+					<img src="/assets/img/icon.png" width="120px"></img>
+					<br />
 					<form className={classes.form} noValidate>
 						<TextField
 							onChange={(e) => {
@@ -154,8 +170,9 @@ export default function SignInSide() {
 							color="primary"
 							className={classes.submit}
 						>
-							Inloggen
+							{loading ? <CircularProgress /> : "Inloggen op studiebeest"}
 						</Button>
+						{errorText != "" ? errorText : ""}
 						<Grid container>
 							<Grid item xs style={{ textAlign: "left" }}>
 								<Link href="#" variant="body2">

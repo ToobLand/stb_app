@@ -43,7 +43,7 @@ const ExerciseBuilder = (props) => {
 		<div className="container">
 			<MenuTop />
 			<SecMenu history={props.history}>
-				<AddQuestion />
+				<AddQuestion id_contentblock={id_contentblock} />
 			</SecMenu>
 
 			<div>{html_content}</div>
