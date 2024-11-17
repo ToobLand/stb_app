@@ -2,5 +2,6 @@
 Studiebeest application react
 
 
-Old -unfinished project- 
-if continue, create a new project! (with React + Vite)
+# Old -unfinished project- deprecated
+The new version is here: https://github.com/ToobLand/studiebeest-frontend
+With REACT + VITE in TYPESCRIPT
